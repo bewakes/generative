@@ -1,9 +1,6 @@
-module Utils where
+module Lib.Random where
 
 import System.Random
-
-uncurry3 :: (a -> b -> c -> d) -> (a, b, c) -> d
-uncurry3 f (a, b, c) = f a b c
 
 randomColor :: IO (Float, Float, Float)
 randomColor = do
@@ -12,6 +9,9 @@ randomColor = do
     b <- randomRIO (200, 255)
     return (r, g, b)
 
+randListIntR :: (Int, Int) -> Int -> IO [Int]
+randListIntR (a, b) size = mapM (const (randomRIO (a, b))) [1..size]
+
 randList = do
     seed <- randomIO :: IO Int
     return (randoms (mkStdGen seed) :: [Float])
@@ -19,3 +19,5 @@ randList = do
 randomPairs = do
     l1 <- randList
     zip l1 <$> randList
+
+randomFloat = randomIO :: IO Float

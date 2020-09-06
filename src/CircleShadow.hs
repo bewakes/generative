@@ -3,7 +3,8 @@ module CircleShadow where
 import System.Random
 
 import Graphics.Proc
-import Utils
+import Lib.Utils
+import Lib.Random
 
 circlesRad = 5
 offset = (3, 3)

@@ -5,17 +5,18 @@ import System.Random
 import Graphics.Proc
 
 import CircleShadow
+import Rectangles
 
 width  = 400
 height = 400
 center = (width / 2, height / 2)
 
 
-setup = circlesSetup width height
+setup = rectanglesSetup width height
 
 draw' xs = do
     background white
-    drawCircles xs
+    drawRects xs
 
 update = return
 
