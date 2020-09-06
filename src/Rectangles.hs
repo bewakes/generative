@@ -4,7 +4,7 @@ import Graphics.Proc
 import Lib.Random
 import Lib.Utils
 
-subdivisions = 10
+subdivisions = 12
 splitPercent = 0.8
 splitRangeStart = (1 - splitPercent) / 2
 minWidth = 15
@@ -56,7 +56,8 @@ rectanglesSetup w h = do
     let rects :: [RectPoints]
         rects = [((0, 0), (w, h))]
     subdividedRects <- liftIO $ subdivide rects subdivisions
-    rectColors <- liftIO $ map (colors !!) <$> randListIntR (0, length colors-1) (length subdividedRects)
+    rectColors <- liftIO $ map (colors !!) <$> randListIntR (0, length colors-1) (length subdividedRects) -- either this
+    -- rectColors <- liftIO $ mapM ((uncurry3 rgb <$>) . const randomColor) [1..length subdividedRects] -- or this
     return (subdividedRects, rectColors)
 
 drawRect :: (RectPoints, Col) -> Draw
