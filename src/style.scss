@@ -1,0 +1,46 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5vh;
+    border-bottom: solid 1px gray;
+    background: salmon;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+
+    .sidepane {
+        width: 15vw;
+        height: 95vh;
+        border-right: solid 1px gray;
+        background: #aa7732;
+
+        &:first-child {
+            border-top: solid 1px;
+        }
+
+        .menu-item {
+            display: block;
+            line-height: 2rem;
+            padding: 10px;
+            border-bottom: solid 1px;
+
+            &:hover {
+                background: teal;
+                cursor: pointer;
+            }
+        }
+    }
+    .content {
+        width: 85vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
