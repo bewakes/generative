@@ -5,6 +5,7 @@ import p5 from 'p5';
 
 import Circles from './generatives/Circles';
 import IFS from './generatives/IteratedFunctionSystem';
+import HyperLines from './generatives/HyperLines';
 
 import './style.scss';
 
@@ -12,6 +13,7 @@ import './style.scss';
 const genItems = {
     IFS: IFS,
     Circles: Circles,
+    HyperLines: HyperLines,
     Recursive: undefined,
 };
 
@@ -19,7 +21,7 @@ const genItems = {
 const App: React.FC = () => {
     const p5ref = React.useRef(null);
     const [p, setP] = React.useState();
-    const [current, setCurrent] = React.useState<keyof (typeof genItems)>();
+    const [current, setCurrent] = React.useState<keyof (typeof genItems)>('HyperLines');
 
     React.useEffect(() => {
         if (genItems[current]) {

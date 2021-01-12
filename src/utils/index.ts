@@ -20,3 +20,8 @@ export const runNTimes = (f: Function, n: number, v: any) => {
 
     return newF(v, n);
 };
+
+export const zip = (a: any[], b: any[]) : [any, any] => {
+    const l = Math.min(a.length, b.length);
+    return [...Array(l)].map((_, i) => [a[i], b[i]]) as [any, any];
+};
